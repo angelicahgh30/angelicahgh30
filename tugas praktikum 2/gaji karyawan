@@ -1,21 +1,24 @@
 program gaji_karyawan;
-
 uses crt;
 
-var
-  Namakaryawan:string;
-  Gajipokok, Gajilembur,Potongangaji,Gajitotal:single;
-  Harilembur,Haritidakbekerja: integer;
+var 
+  nama: string;
+  gaji_pokok,gaji_lembur,potongan_gaji,gaji_total: longint;
+  lembur,tidak_bekerja: integer;
 
-begin
+begin 
   clrscr;
-  write('masukkan nama anda ');readln(Namakaryawan);
-  write('masukkan gaji pokok ');readln(Gajipokok);
-  write('masukkan hari lembur ');readln(Harilembur);
-  write('masukkan hari tidak bekerja ');readln(Haritidakbekerja);
-  Gajilembur:=150.0000*Harilembur;
+  writeln('           PT. Berjaya Abadi');
+  writeln('          gaji karyawan (bulan)');
+  writeln();
+  writeln();
+  write('masukkan nama karyawan               : '); readln(nama);
+  write('masukkan gaji pokok                  : '); readln(gaji_pokok);
+  write('masukkan banyak hari lembur          : '); readln(lembur);
+  write('masukkan banyak hari tidak bekerja   : '); readln(tidak_bekerja);
+  gaji_lembur:= 150000*lembur;
+  potongan_gaji:= 30000*tidak_bekerja;
+  gaji_total:= gaji_pokok+gaji_lembur-potongan_gaji;
+  writeln('gaji total karyawan ', nama , ' adalah : ', gaji_total);
 
-Potongangaji:=30.000*Haritidakbekerja;
-Gajitotal:=Gajipokok+Gajilembur-Potongangaji;
-writeln('Gajitotal anda adalah:Rp',Gajitotal:0:3 );
 end.
