@@ -1,23 +1,29 @@
-program Perkalian_Angka;
-
+program soalno3;
 uses crt;
 
 var
-  i, hasil: integer;
 
-begin
-  clrscr;
-  writeln('Hasil Perkalian Angka dari 1 hingga 100:');
-  
-  for i := 1 to 100 do
-  begin
-    hasil := 1 * i; 
+i, j, k : integer;
 
-    if not ((hasil mod 3 <> 0) and (hasil mod 5 <> 0)) then
     begin
-      writeln(hasil); 
-    end;
-  end;
+        clrscr;
+        for i := 1 to 4 do
+            begin
+             for j := i to 4 do
+             write ('  ');
+             for k := 1 to (2 * i-1) do
+             write ('* ');
+             writeln;
+             end;
 
-  readln; 
-end.
+            for i := 3 downto 1 do
+            begin
+             for j := 4 downto i do
+             write ('  ');
+             for k := 1 to (2* i-1) do
+             write ('* ');
+             writeln;
+             end;
+    
+        
+    end.
