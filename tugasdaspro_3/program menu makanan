@@ -1,0 +1,66 @@
+program MenuMakanan;
+uses crt;
+var
+  pilihan: integer;
+  harga, totalHarga: real;
+  lanjut: char;
+
+procedure tampilkanMenu;
+begin
+  clrscr;
+  writeln('Menu Restoran:');
+  writeln('1. Nasi Goreng  - Rp 20,000');
+  writeln('2. Mie Goreng   - Rp 18,000');
+  writeln('3. Ayam Bakar   - Rp 25,000');
+  writeln('4. Sate Ayam    - Rp 22,000');
+  writeln('5. Soto Ayam    - Rp 17,000');
+  writeln('6. Bakso        - Rp 15,000');
+  writeln('7. Es Teh       - Rp 5,000');
+  writeln('8. Jus Jeruk    - Rp 10,000');
+  writeln('9. Es Kopi      - Rp 12,000');
+  writeln('10. Air Mineral - Rp 3,000');
+end;
+
+function pilihMenu(pilihan: integer): real;
+begin
+  case pilihan of
+    1: begin writeln('Anda memesan Nasi Goreng'); pilihMenu := 20000; end;
+    2: begin writeln('Anda memesan Mie Goreng'); pilihMenu := 18000; end;
+    3: begin writeln('Anda memesan Ayam Bakar'); pilihMenu := 25000; end;
+    4: begin writeln('Anda memesan Sate Ayam'); pilihMenu := 22000; end;
+    5: begin writeln('Anda memesan Soto Ayam'); pilihMenu := 17000; end;
+    6: begin writeln('Anda memesan Bakso'); pilihMenu := 15000; end;
+    7: begin writeln('Anda memesan Es Teh'); pilihMenu := 5000; end;
+    8: begin writeln('Anda memesan Jus Jeruk'); pilihMenu := 10000; end;
+    9: begin writeln('Anda memesan Es Kopi'); pilihMenu := 12000; end;
+    10: begin writeln('Anda memesan Air Mineral'); pilihMenu := 3000; end;
+  else
+    begin writeln('Pilihan tidak valid.'); pilihMenu := 0; end;
+  end;
+end;
+
+begin
+  totalHarga := 0;
+
+  repeat
+    tampilkanMenu;
+    writeln('Masukkan pilihan menu Anda (1-10):');
+    readln(pilihan);
+
+    if (pilihan >= 1) and (pilihan <= 10) then
+    begin
+      harga := pilihMenu(pilihan);
+      totalHarga := totalHarga + harga;
+    end
+    else
+    begin
+      writeln('Pilihan tidak valid, silakan coba lagi.');
+    end;
+
+    writeln('Apakah Anda ingin memesan selain nasi goreng lagi? (Y/T)');
+    writeln(' Apakah anda mau memesan lagi?');
+    readln(lanjut);
+  until upcase(lanjut) <> 'Y';  
+
+  writeln('Total harga pesanan Anda: Rp ', totalHarga:0:0);
+end.
